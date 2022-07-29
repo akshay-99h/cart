@@ -12,11 +12,11 @@ export default class CartItem extends React.Component {
   }
 
   removeItem = () => {
-    // this.setState({ qty: this.state.qty-- });
+    this.setState({ qty: this.state.qty - 1 });
   };
 
   addItem = () => {
-    // console.log("addItem");
+    this.setState({ qty: this.state.qty + 1 });
   };
 
   render() {
