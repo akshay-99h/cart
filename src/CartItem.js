@@ -11,6 +11,14 @@ export default class CartItem extends React.Component {
     };
   }
 
+  removeItem = () => {
+    // this.setState({ qty: this.state.qty-- });
+  };
+
+  addItem = () => {
+    // console.log("addItem");
+  };
+
   render() {
     const { price, title, qty } = this.state;
     return (
@@ -35,11 +43,13 @@ export default class CartItem extends React.Component {
               alt="decrease"
               className="action-icons"
               src={"https://cdn-icons-png.flaticon.com/512/992/992683.png"}
+              onClick={this.removeItem.bind(this)}
             />
             <img
               alt="increase"
               className="action-icons"
               src={"https://cdn-icons-png.flaticon.com/512/992/992651.png"}
+              onClick={this.addItem.bind(this)}
             />
             <img
               alt="delete"
