@@ -1,7 +1,18 @@
 import React from "react";
 
 export default class CartItem extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      price: 999,
+      title: "Phone",
+      qty: 1,
+      img: "",
+    };
+  }
+
   render() {
+    const { price, title, qty } = this.state;
     return (
       <div className="cart-item">
         <div className="left-block">
@@ -15,11 +26,27 @@ export default class CartItem extends React.Component {
               fontWeight: "500",
             }}
           >
-            Phone
+            {title}
           </div>
-          <div style={{ color: "#777" }}>Rs. 999</div>
-          <div style={{ color: "#777" }}>Qty: 1</div>
-          <div className="cart-item-actions">{/*buttons*/}</div>
+          <div style={{ color: "#777" }}>Rs. {price}</div>
+          <div style={{ color: "#777" }}>Qty: {qty}</div>
+          <div className="cart-item-actions">
+            <img
+              alt="decrease"
+              className="action-icons"
+              src={"https://cdn-icons-png.flaticon.com/512/992/992683.png"}
+            />
+            <img
+              alt="increase"
+              className="action-icons"
+              src={"https://cdn-icons-png.flaticon.com/512/992/992651.png"}
+            />
+            <img
+              alt="delete"
+              className="action-icons"
+              src="https://cdn-icons.flaticon.com/png/512/2907/premium/2907762.png?token=exp=1659096698~hmac=8a04ff2ed7de015684f5260f81d13001"
+            />
+          </div>
         </div>
       </div>
     );
