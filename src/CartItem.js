@@ -9,14 +9,44 @@ export default class CartItem extends React.Component {
       qty: 1,
       img: "",
     };
+    this.testing();
+  }
+
+  testing() {
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("done");
+      }, 5000);
+    });
+    promise.then(() => {
+      // setState acts like synchronous update
+      this.setState({ qty: this.qty + 10 });
+      this.setState({ qty: this.qty + 10 });
+      this.setState({ qty: this.qty + 10 });
+    });
+    console.log(this.state);
   }
 
   removeItem = () => {
-    this.setState({ qty: this.state.qty - 1 });
+    if (this.state.qty > 1) {
+      this.setState({ qty: this.state.qty - 1 });
+    } else return;
   };
-
   addItem = () => {
-    this.setState({ qty: this.state.qty + 1 });
+    this.setState({ qty: this.state.qty + 100 });
+    this.setState({ qty: this.state.qty + 10 });
+    this.setState({ qty: this.state.qty + 1 }, () => {
+      console.log(this.state.qty);
+    });
+    //all the setState calls will be merged into a single call
+    //due to #batching and that is why our component will
+    //be re-rendered only once
+    //merge shallowly* > takes the last call and the last object
+    //only the +1 will be considered
+
+    //setState call is asynchronous
+    //the second argument is a callback function which will be
+    //called after the setState is done
   };
 
   render() {
