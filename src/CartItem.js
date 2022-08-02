@@ -33,10 +33,10 @@ export default class CartItem extends React.Component {
     } else return;
   };
   addItem = () => {
-    this.setState({ qty: this.state.qty + 100 });
-    this.setState({ qty: this.state.qty + 10 });
+    // this.setState({ qty: this.state.qty + 100 });
+    // this.setState({ qty: this.state.qty + 10 });
     this.setState({ qty: this.state.qty + 1 }, () => {
-      console.log(this.state.qty);
+      // console.log(this.state.qty);
     });
     //all the setState calls will be merged into a single call
     //due to #batching and that is why our component will
@@ -84,7 +84,7 @@ export default class CartItem extends React.Component {
             <img
               alt="delete"
               className="action-icons"
-              src="https://cdn-icons.flaticon.com/png/512/2907/premium/2907762.png?token=exp=1659096698~hmac=8a04ff2ed7de015684f5260f81d13001"
+              src="https://cdn-icons.flaticon.com/png/512/2907/premium/2907762.png?token=exp=1659456778~hmac=73c07175f045b0af18a557ef5b67718f"
             />
           </div>
         </div>
