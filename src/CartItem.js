@@ -12,20 +12,20 @@ export default class CartItem extends React.Component {
     this.testing();
   }
 
-  testing() {
-    const promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve("done");
-      }, 5000);
-    });
-    promise.then(() => {
-      // setState acts like synchronous update
-      this.setState({ qty: this.qty + 10 });
-      this.setState({ qty: this.qty + 10 });
-      this.setState({ qty: this.qty + 10 });
-    });
-    console.log(this.state);
-  }
+  // testing() {
+  //   const promise = new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve("done");
+  //     }, 5000);
+  //   });
+  //   promise.then(() => {
+  //     // setState acts like asynchronous update here as well
+  //     this.setState({ qty: this.state.qty + 10 });
+  //     this.setState({ qty: this.state.qty + 10 });
+  //     this.setState({ qty: this.state.qty + 10 });
+  //   });
+  //   console.log(this.state);
+  // }
 
   removeItem = () => {
     if (this.state.qty > 1) {
@@ -92,7 +92,8 @@ export default class CartItem extends React.Component {
     );
   }
 }
-
+//do not call setState in render as setState calls render itself
+//and that will create a recursive loop, causing stack overflow
 const styles = {
   image: {
     height: 110,
