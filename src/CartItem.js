@@ -9,7 +9,7 @@ export default class CartItem extends React.Component {
       qty: 1,
       img: "",
     };
-    this.testing();
+    // this.testing();
   }
 
   // testing() {
